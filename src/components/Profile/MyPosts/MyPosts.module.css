@@ -1,0 +1,22 @@
+.title {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+.writePost {
+	display: flex;
+	flex-direction: column;
+margin-bottom: 20px;
+}
+.input {
+	width: 100%;
+	height: 100px;
+	background-color: blanchedalmond;
+	text-align: start;
+	margin-bottom: 10px;
+}
+.postBtn {
+	align-self: end;
+	border: 2px solid blueviolet;
+	border-radius: 10px;
+	padding: 10px 15px;
+}

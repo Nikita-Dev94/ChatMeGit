@@ -1,0 +1,26 @@
+.item {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 15px;
+	display: flex;
+	border: 1px solid rgba(0, 0, 0, 0.238);
+	border-radius: 10px;
+}
+.avatar {
+	width: 60px;
+	height: 60px;
+	margin-right: 15px;
+align-self: center;
+margin: 0 auto;
+}
+.text {
+	font-size: 20px;
+}
+.postContent {
+	width: 100%;
+	
+}
+.authorName{
+	margin-bottom: 10px;
+}
+.text{}

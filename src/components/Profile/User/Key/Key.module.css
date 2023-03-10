@@ -1,0 +1,12 @@
+
+.titleName{
+	font-size: 35px;
+	margin-bottom: 40px;
+}
+.about{}
+.key{
+	font-size: 22px;
+}
+.key:not(:last-child) {
+	margin-bottom: 10px;
+}

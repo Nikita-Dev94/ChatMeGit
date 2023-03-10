@@ -1,0 +1,11 @@
+.item {
+	border-bottom: 2px solid rgba(0, 0, 0, 0.263);
+	padding: 15px 20px;
+}
+.item:hover {
+	border-bottom: 2px solid hwb(254 10% 43% / 0.263);
+}
+
+.link.active  {
+	background-color: antiquewhite;
+}
