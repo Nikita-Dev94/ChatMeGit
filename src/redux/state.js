@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+
 
 
 let store = {
@@ -126,8 +131,12 @@ let store = {
 			this._callSubscriber(this._state)
 		}
 	}
-
 }
+
+export const createPostActionCreator = () => ({ type: ADD_POST })
+export const postTextChangeActionCreator = (text) => ({ type: UPDATE_POST_TEXT, updateTextPost: text })
+export const pushMessageCreateAction = () => ({ type: SEND_MESSAGE });
+export const updateMessageTextFieldCreateAction = (text) => ({ type: UPDATE_MESSAGE_TEXT, updateTextMessage: text });
 
 window.store = store;
 
