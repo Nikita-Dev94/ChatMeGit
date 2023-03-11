@@ -92,39 +92,39 @@ let store = {
 	getState() {
 		return this._state
 	},
-	updatePost(updateTextPost) {
-		this._state.profilePage.textPost = updateTextPost;
-		this._callSubscriber(this._state)
-	},
-	addPost() {
-		let newPost = {
-			id: 3,
-			message: this._state.profilePage.textPost,
-			src: 'https://avatars.mds.yandex.net/i?id=2833a2c235fd4df1ea316ad879a31b7a8fbd2a14-6472467-images-thumbs&n=13',
-			name: 'Зубенко Михаил Петрович',
-		}
-		this._state.profilePage.posts.push(newPost)
-		this._callSubscriber(this._state)
-		this.updatePost('')
-	},
-	updateMessageText(updateTextMessage) {
-		this._state.dialogsPage.messageText = updateTextMessage;
-		this._callSubscriber(this._state)
-	},
-	sendMessage() {
-		let newMessage = {
-			id: 3,
-			message: this._state.dialogsPage.messageText
-		}
-		this._state.dialogsPage.messages.push(newMessage)
-		this._callSubscriber(this._state)
-		this._state.dialogsPage.messageText = ''
-	},
 	_callSubscriber() {
 		console.log("State Changed");
 	},
 	subscribe(observer) {
 		this._callSubscriber = observer; // observer - наблюдатель
+	},
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
+			let newPost = {
+				id: 3,
+				message: this._state.profilePage.textPost,
+				src: 'https://avatars.mds.yandex.net/i?id=2833a2c235fd4df1ea316ad879a31b7a8fbd2a14-6472467-images-thumbs&n=13',
+				name: 'Зубенко Михаил Петрович',
+			}
+			this._state.profilePage.posts.push(newPost)
+			this._callSubscriber(this._state)
+			this._state.profilePage.textPost = ''
+
+		} else if (action.type === 'UPDATE-POST-TEXT') {
+			this._state.profilePage.textPost = action.updateTextPost;
+			this._callSubscriber(this._state)
+		} else if (action.type === 'SEND-MESSAGE') {
+			let newMessage = {
+				id: 3,
+				message: this._state.dialogsPage.messageText
+			}
+			this._state.dialogsPage.messages.push(newMessage)
+			this._callSubscriber(this._state)
+			this._state.dialogsPage.messageText = ''
+		} else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+			this._state.dialogsPage.messageText = action.updateTextMessage;
+			this._callSubscriber(this._state)
+		}
 	}
 
 }

@@ -8,7 +8,6 @@ import DialogField from './DialogField/DialogField';
 
 const Dialogs = (props) => {
 
-
 	let dialog = props.state.dialogs.map(d => <DialogAuthor id={d.id} author={d.author} />)
 	return (
 
@@ -16,7 +15,7 @@ const Dialogs = (props) => {
 			<ul className={s.dialogsList}>
 				{dialog}
 			</ul>
-			<DialogField messages={props.state.messages} sendMessage={props.sendMessage} messageText={props.state.messageText} updateMessageText={props.updateMessageText} />
+			<DialogField messages={props.state.messages} messageText={props.state.messageText} dispatch={props.dispatch} />
 		</div >
 
 	);

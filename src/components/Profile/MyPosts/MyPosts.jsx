@@ -4,15 +4,17 @@ import { Post } from "./Post/Post";
 
 
 export const MyPosts = (props) => {
+
 	let postsElement = props.posts.map(p => <Post src={p.src} name={p.name} message={p.message} />)
 	let createPostElement = React.createRef();
 	const createPost = (e) => {
 		e.preventDefault()
-		props.addPost()
+		props.dispatch({ type: 'ADD-POST' })
+
 	}
 
 	const postTextChange = () => {
-		props.updatePost(createPostElement.current.value)
+		props.dispatch({ type: 'UPDATE-POST-TEXT', updateTextPost: createPostElement.current.value })
 	}
 	return (
 		<div className={s.posts}>

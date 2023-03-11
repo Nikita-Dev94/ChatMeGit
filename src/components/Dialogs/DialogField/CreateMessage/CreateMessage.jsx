@@ -7,15 +7,20 @@ const CreateMessage = (props) => {
 	let createMessageField = React.createRef();
 
 	const pushMessage = () => {
-		props.sendMessage()
+
+		props.dispatch({ type: 'SEND-MESSAGE' })
+		console.log(props);
+
+
 	}
-	const updateMessageTExtField = () => {
-		props.updateMessageText(createMessageField.current.value)
+	const updateMessageTextField = () => {
+		props.dispatch({ type: 'UPDATE-MESSAGE-TEXT', updateTextMessage: createMessageField.current.value })
+
 
 	}
 	return (
 		<div className={s.Createmessage} >
-			<textarea className={s.textField} ref={createMessageField} onChange={updateMessageTExtField} value={props.messageText} placeholder='Введите сообщение'>
+			<textarea className={s.textField} ref={createMessageField} onChange={updateMessageTextField} value={props.messageText} placeholder='Введите сообщение'>
 
 			</textarea>
 			<button onClick={pushMessage}>Опубликовать</button>

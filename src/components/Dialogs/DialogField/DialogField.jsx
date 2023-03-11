@@ -12,7 +12,7 @@ const DialogField = (props) => {
 	return (
 		<div className={s.dialogField}>
 			{messagesEl}
-			<CreateMessage sendMessage={props.sendMessage} messageText={props.messageText} updateMessageText={props.updateMessageText} />
+			<CreateMessage messageText={props.messageText} dispatch={props.dispatch} />
 		</div>
 
 	);
