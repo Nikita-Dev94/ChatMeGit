@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
-const SEND_MESSAGE = 'SEND-MESSAGE'
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+import profileReducer from './profileReducer'
+import dialogsReducer from './dialogsReducer'
+
 
 
 
@@ -104,39 +103,14 @@ let store = {
 		this._callSubscriber = observer; // observer - наблюдатель
 	},
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
-			let newPost = {
-				id: 3,
-				message: this._state.profilePage.textPost,
-				src: 'https://avatars.mds.yandex.net/i?id=2833a2c235fd4df1ea316ad879a31b7a8fbd2a14-6472467-images-thumbs&n=13',
-				name: 'Зубенко Михаил Петрович',
-			}
-			this._state.profilePage.posts.push(newPost)
-			this._callSubscriber(this._state)
-			this._state.profilePage.textPost = ''
+		this._state.profilePage = profileReducer(this._state.profilePage, action)
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
 
-		} else if (action.type === 'UPDATE-POST-TEXT') {
-			this._state.profilePage.textPost = action.updateTextPost;
-			this._callSubscriber(this._state)
-		} else if (action.type === 'SEND-MESSAGE') {
-			let newMessage = {
-				id: 3,
-				message: this._state.dialogsPage.messageText
-			}
-			this._state.dialogsPage.messages.push(newMessage)
-			this._callSubscriber(this._state)
-			this._state.dialogsPage.messageText = ''
-		} else if (action.type === 'UPDATE-MESSAGE-TEXT') {
-			this._state.dialogsPage.messageText = action.updateTextMessage;
-			this._callSubscriber(this._state)
-		}
+		this._callSubscriber(this._state)
 	}
 }
 
-export const createPostActionCreator = () => ({ type: ADD_POST })
-export const postTextChangeActionCreator = (text) => ({ type: UPDATE_POST_TEXT, updateTextPost: text })
-export const pushMessageCreateAction = () => ({ type: SEND_MESSAGE });
-export const updateMessageTextFieldCreateAction = (text) => ({ type: UPDATE_MESSAGE_TEXT, updateTextMessage: text });
+
 
 window.store = store;
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import s from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
-import { createPostActionCreator, postTextChangeActionCreator } from './../../../redux/state';
+import { createPostActionCreator, postTextChangeActionCreator } from './../../../redux/profileReducer';
 
 
 
 
 
 export const MyPosts = (props) => {
-
+	debugger;
 	let postsElement = props.posts.map(p => <Post src={p.src} name={p.name} message={p.message} />)
 	let createPostElement = React.createRef();
 	const createPost = (e) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { updateMessageTextFieldCreateAction } from '../../../../redux/state';
-import { pushMessageCreateAction } from './../../../../redux/state';
+
+import { pushMessageCreateAction, updateMessageTextFieldCreateAction } from './../../../../redux/dialogsReducer';
 import s from "./CreateMessage.module.css";
 
 const CreateMessage = (props) => {
