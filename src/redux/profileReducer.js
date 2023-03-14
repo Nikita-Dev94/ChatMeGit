@@ -46,15 +46,17 @@ const profileReducer = (state = initialState, action) => {
 			src: 'https://avatars.mds.yandex.net/i?id=2833a2c235fd4df1ea316ad879a31b7a8fbd2a14-6472467-images-thumbs&n=13',
 			name: 'Зубенко Михаил Петрович',
 		}
-		state.posts.push(newPost)
-		state.textPost = ''
+		return {
+			...state,
+			posts: [...state.posts, newPost],
+			textPost: ''
+		}
 	} else if (action.type === UPDATE_POST_TEXT) {
-		state.textPost = action.updateTextPost;
-	} else {
-		return state;
+		return {
+			...state,
+			textPost: action.updateTextPost
+		}
 	}
-
-
 	return state;
 }
 
