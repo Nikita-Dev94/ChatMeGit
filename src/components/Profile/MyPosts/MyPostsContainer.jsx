@@ -14,6 +14,7 @@ export const MyPostsContainer = (props) => {
 	const postTextChange = (text) => {
 		props.dispatch(postTextChangeActionCreator(text))
 	}
+
 	return (
 		<MyPosts posts={props.posts} textPost={props.textPost} createPost={createPost} postTextChange={postTextChange} />
 	);

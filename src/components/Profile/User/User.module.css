@@ -4,7 +4,19 @@
 	margin-bottom: 20px;
 }
 .titleName {
-	font-size: 40px;
-	margin-bottom: 20px;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 35px;
+	color: #22577A;
+	margin-bottom: 5px;
+}
+
+
+.about {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #767676;
 }
 

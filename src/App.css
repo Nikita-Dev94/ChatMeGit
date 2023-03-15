@@ -1,3 +1,6 @@
+@import "@font/nunito";
+
+
 /* Reset and base styles  */
 * {
 	padding: 0px;
@@ -121,17 +124,24 @@ legend {
 
 
 
-
+.wrapper {
+	position: relative;
+}
 .app {
 	display: grid;
-	grid-template-columns: repeat(12,1fr);
-	grid-template-rows: 80px 100%;
-	gap: 20px 30px;
+	grid-template-columns: 300px repeat(11,1fr);
+	grid-template-rows: 100px 100%;
+	gap: 20px 40px;
 	max-width: 1200px;
 	margin: 0 auto;
+	font-family: var(--fontFamily-nunito), sans-serif;
 }
-
+.link {
+	border: 1px solid black;
+}
 .content {
-	grid-column: 3 / 13;
+	grid-column: 2 / 13;
 	grid-row: 2 / 3;
+	height: calc(100vh - 120px);
+	overflow-y: scroll;
 }
