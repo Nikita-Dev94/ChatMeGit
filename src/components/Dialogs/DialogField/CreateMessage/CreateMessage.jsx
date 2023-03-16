@@ -1,23 +1,21 @@
 import React from 'react';
-
-import { pushMessageCreateAction, updateMessageTextFieldCreateAction } from './../../../../redux/dialogsReducer';
 import s from "./CreateMessage.module.css";
 
 const CreateMessage = (props) => {
+	console.log(props);
 	let createMessageField = React.createRef();
 
 	const pushMessage = () => {
-		props.dispatch(pushMessageCreateAction())
-		console.log(props);
+		props.pushMessage()
 	}
-	const updateMessageTextField = () => {
-		props.dispatch(updateMessageTextFieldCreateAction(createMessageField.current.value))
+	const updateMessageText = () => {
+		props.updateMessageTextField(createMessageField.current.value)
 	}
 	return (
 		<div className={s.Createmessage} >
-			<textarea onChange={updateMessageTextField}
-				className={s.textField} ref={createMessageField}
-				value={props.messageText} placeholder='Введите сообщение' />
+			<textarea
+				onChange={updateMessageText} value={props.messageText}
+				className={s.textField} placeholder='Введите сообщение' ref={createMessageField} />
 			<button onClick={pushMessage}>Опубликовать</button>
 		</div>
 	);
