@@ -8,6 +8,7 @@ import { Post } from "./Post/Post";
 
 
 export const MyPosts = (props) => {
+
 	let postsElement = props.posts.map(p => <Post src={p.src} name={p.name} message={p.message} />)
 	let createPostElement = React.createRef();
 	let createPostBtn = React.createRef();
@@ -23,8 +24,11 @@ export const MyPosts = (props) => {
 		<div className={s.posts}>
 			<h3 className={s.title}>Мои посты</h3>
 			<form action='#' className={s.writePost}>
-				<textarea ref={createPostElement} className={s.input} onChange={postTextChange} value={props.textPost} placeholder='Что у Вас нового?' />
-				<button ref={createPostBtn} type='submit' className={s.postBtn} onClick={createPost} >Отправить</button>
+				<textarea
+					onChange={postTextChange} value={props.textPost}
+					ref={createPostElement} className={s.input} placeholder='Что у Вас нового?' />
+				<button onClick={createPost}
+					ref={createPostBtn} type='submit' className={s.postBtn}  >Отправить</button>
 			</form>
 
 			{postsElement}

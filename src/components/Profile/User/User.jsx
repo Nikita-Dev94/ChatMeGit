@@ -4,8 +4,8 @@ import Key from "./Key/Key";
 import Avatar from "./Avatar/Avatar";
 
 
-export const User = (props) => {
 
+const User = (props) => {
 
 	let keysElement = props.keyData.map(k => <Key title={k.title} value={k.value} />)
 
@@ -20,4 +20,10 @@ export const User = (props) => {
 			</div>
 		</div>
 	);
+
+
 }
+
+
+
+export default User

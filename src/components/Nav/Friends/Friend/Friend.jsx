@@ -8,7 +8,7 @@ const Friend = (props) => {
 	return (
 		<NavLink to={`/user/${props.id}`} className={s.friend}>
 			<img src={props.src} alt="" />
-			<p className={s.name}>{props.name}</p>
+			<span className={s.name}>{props.name}</span>
 		</NavLink>
 	);
 }

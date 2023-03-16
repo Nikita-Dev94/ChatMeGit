@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./DialogField.module.css";
 import Message from './Message/Message';
-import CreateMessage from './CreateMessage/CreateMessage';
+import CreateMessageContainer from './CreateMessage/CreateMessageContainer';
 
 
 
@@ -12,7 +12,7 @@ const DialogField = (props) => {
 	return (
 		<div className={s.dialogField}>
 			{messagesEl}
-			<CreateMessage messageText={props.messageText} dispatch={props.dispatch} />
+			<CreateMessageContainer />
 		</div>
 
 	);

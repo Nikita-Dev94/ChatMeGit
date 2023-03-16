@@ -40,6 +40,15 @@ let store = {
 					value: 'ebanarama.xyu'
 				},
 			],
+			info: [
+				{
+					quote: 'Она тебя сожрет! Палку! Палку давай!',
+					date: '31/01/1994',
+					education: 'Не ПТУ а Колледж',
+					site: 'ebanayrama.xyu',
+					city: 'ЗШК - страна чудес, зашел в подьезд тебе пиздец',
+				}
+			],
 		},
 		dialogsPage: {
 			dialogs: [
@@ -72,7 +81,7 @@ let store = {
 			],
 			messageText: ''
 		},
-		navBar: {
+		navbar: {
 			friends: [
 				{
 					id: 1,
@@ -105,7 +114,6 @@ let store = {
 	dispatch(action) {
 		this._state.profilePage = profileReducer(this._state.profilePage, action)
 		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
-
 		this._callSubscriber(this._state)
 	}
 }

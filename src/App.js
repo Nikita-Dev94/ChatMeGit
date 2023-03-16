@@ -8,18 +8,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 
-const App = (props) => {
+const App = () => {
 
 	return (
 		<BrowserRouter>
 			<div className='wrapper'>
 				<div className="app">
 					<Header />
-					<Nav state={props.state.navbar} />
+					<Nav />
 					<div className='content'>
 						<Routes >
-							<Route path='/profile' element={<Profile state={props.state.profilePage} dispatch={props.dispatch} />} />
-							<Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch} />} />
+							<Route path='/profile' element={<Profile />} />
+							<Route path='/dialogs/*' element={<Dialogs />} />
 						</Routes>
 					</div>
 				</div>
