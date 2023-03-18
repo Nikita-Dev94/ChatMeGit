@@ -12,6 +12,7 @@ const Nav = () => {
 			<ul className={s.list}>
 				<li className={s.item}> <NavLink to='/profile' className={navData => navData.isActive ? s.active : s.link}>Моя страница</NavLink></li>
 				<li className={s.item}> <NavLink to='/dialogs' className={navData => navData.isActive ? s.active : s.link}>Сообщения</NavLink></li>
+				<li className={s.item}> <NavLink to='/users'>Пользователи</NavLink></li>
 				<li className={s.item}> <NavLink to='#2'>Новости</NavLink></li>
 				<li className={s.item}> <NavLink to='#2'>Музыка</NavLink></li>
 				<li className={s.item}> <NavLink to='#2' >Настройки</NavLink></li>
@@ -21,6 +22,8 @@ const Nav = () => {
 	);
 
 }
+
+
 
 
 

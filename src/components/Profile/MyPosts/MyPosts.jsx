@@ -9,7 +9,7 @@ import { Post } from "./Post/Post";
 
 export const MyPosts = (props) => {
 
-	let postsElement = props.posts.map(p => <Post src={p.src} name={p.name} message={p.message} />)
+	let postsElement = props.posts.map(p => <Post key={p.id} src={p.src} name={p.name} message={p.message} />)
 	let createPostElement = React.createRef();
 	let createPostBtn = React.createRef();
 

@@ -41,7 +41,7 @@ const profileReducer = (state = initialState, action) => {
 
 	if (action.type === ADD_POST) {
 		let newPost = {
-			id: 3,
+			id: state.posts[state.posts.length - 1].id + 1,
 			message: state.textPost,
 			src: 'https://avatars.mds.yandex.net/i?id=2833a2c235fd4df1ea316ad879a31b7a8fbd2a14-6472467-images-thumbs&n=13',
 			name: 'Зубенко Михаил Петрович',

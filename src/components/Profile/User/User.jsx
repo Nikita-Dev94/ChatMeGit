@@ -7,7 +7,7 @@ import Avatar from "./Avatar/Avatar";
 
 const User = (props) => {
 
-	let keysElement = props.keyData.map(k => <Key title={k.title} value={k.value} />)
+	let keysElement = props.keyData.map(k => <Key key={k.title} title={k.title} value={k.value} />)
 
 	return (
 		<div className={s.user}>

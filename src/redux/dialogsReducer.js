@@ -34,8 +34,9 @@ let initilState = {
 }
 const dialogsReducer = (state = initilState, action) => {
 	if (action.type === SEND_MESSAGE) {
+
 		let newMessage = {
-			id: 3,
+			id: state.messages[state.messages.length - 1].id + 1,
 			message: state.messageText
 		}
 		return {

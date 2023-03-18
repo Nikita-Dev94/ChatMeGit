@@ -8,7 +8,7 @@ import CreateMessageContainer from './CreateMessage/CreateMessageContainer';
 const DialogField = (props) => {
 
 
-	let messagesEl = props.messages.map(m => <Message message={m.message} />)
+	let messagesEl = props.messages.map(m => <Message key={m.id} message={m.message} />)
 	return (
 		<div className={s.dialogField}>
 			{messagesEl}
