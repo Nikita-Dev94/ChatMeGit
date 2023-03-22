@@ -1,0 +1,11 @@
+.page {
+	font-size: 16px;
+}
+.currentPage {
+	color: yellowgreen;
+	font-size: 24px;
+}
+
+.page:not(:last-child) {
+	margin-right: 10px;
+}

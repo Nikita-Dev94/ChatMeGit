@@ -46,6 +46,7 @@ const dialogsReducer = (state = initilState, action) => {
 		}
 
 	} else if (action.type === UPDATE_MESSAGE_TEXT) {
+
 		return {
 			...state,
 			messageText: action.updateTextMessage

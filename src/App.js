@@ -19,7 +19,7 @@ const App = () => {
 					<Nav />
 					<div className='content'>
 						<Routes >
-							<Route path='/profile' element={<Profile />} />
+							<Route path='/profile/*' element={<Profile />} />
 							<Route path='/dialogs/*' element={<Dialogs />} />
 							<Route path='/users' element={<UsersContainer />} />
 						</Routes>

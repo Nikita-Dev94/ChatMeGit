@@ -10,6 +10,7 @@ const CreateMessage = (props) => {
 	}
 	const updateMessageText = () => {
 		props.updateMessageTextField(createMessageField.current.value)
+
 	}
 	return (
 		<div className={s.Createmessage} >
