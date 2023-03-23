@@ -8,17 +8,8 @@ import { setUsersAC } from './../../redux/usersReducer';
 
 
 
-let mapStateToProps = (state) => {
-
-
-	// return {
-	// 	users: state.usersPage.users,
-	// 	totalUsers: state.usersPage.totalCount,
-	// 	usersOnPage: 5,
-	// 	currentPage: state.usersPage.currentPage,
-	// 	isFetching: state.usersPage.isFetching
-	// }
-
+let mapStateToProps = () => {
+	return {}
 }
 
 let mapDispatchToProps = (dispatch) => {

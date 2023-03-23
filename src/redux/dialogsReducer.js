@@ -4,19 +4,19 @@ const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 let initilState = {
 	dialogs: [
 		{
-			id: '1',
+			id: 1,
 			author: 'Вадим Епанчинцев'
 		},
 		{
-			id: '2',
+			id: 2,
 			author: 'Юрий Трубачев'
 		},
 		{
-			id: '3',
+			id: 3,
 			author: 'Андрей Разин'
 		},
 		{
-			id: '4',
+			id: 4,
 			author: 'Даниил Вовченко'
 		},
 	],

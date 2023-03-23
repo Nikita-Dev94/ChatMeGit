@@ -1,7 +1,7 @@
 import React from 'react'
 import User from './User/User'
 import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import s from './Users.module.css'
 
 
@@ -17,7 +17,7 @@ export default function Users(props) {
 	const unfollow = (userId) => {
 		props.unfollow(userId)
 	}
-	const dispatch = useDispatch()
+
 	const users = useSelector((state) => state.usersPage.users);
 	const currentPage = useSelector(state => state.usersPage.currentPage);
 	const usersOnPage = useSelector(state => state.usersPage.usersOnPage)
@@ -28,7 +28,6 @@ export default function Users(props) {
 		axios
 			.get(`${pathApi}/users?page=${currentPage}&count=${usersOnPage}`)
 			.then(res => {
-				props.setTotalCount(res.data.totalCount)
 				props.setUsersStore(res.data.items)
 			})
 	}
