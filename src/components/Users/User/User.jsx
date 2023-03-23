@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './User.module.css'
+import { NavLink } from 'react-router-dom';
 
 
 export default function User(props) {
@@ -13,7 +14,7 @@ export default function User(props) {
 
 
 	return (
-		<div>
+		<NavLink to={'/profile/' + props.id}>
 			<div className={s.left__side}>
 				<img src={props.avatarURL != null ? props.avatarURL : 'https://ac204.digitalmind.su/Images/sostav/students/muhanov.jpg'}
 					alt={'props.fullName'} className={s.userAvatar} />
@@ -28,6 +29,6 @@ export default function User(props) {
 				</div>
 				<div className={s.location}>{'props.location'}</div>
 			</div>
-		</div >
+		</ NavLink>
 	)
 }

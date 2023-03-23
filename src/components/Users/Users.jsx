@@ -1,36 +1,38 @@
 import React from 'react'
 import User from './User/User'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setTotalCount, setCurrentPage, setUsers, follow, unfollow } from '../../redux/usersReducer'
 import s from './Users.module.css'
 
 
 
 export default function Users(props) {
 
-
-
-	const follow = (userId) => {
-		props.follow(userId)
-	}
-
-	const unfollow = (userId) => {
-		props.unfollow(userId)
-	}
-
+	const dispatch = useDispatch()
 	const users = useSelector((state) => state.usersPage.users);
 	const currentPage = useSelector(state => state.usersPage.currentPage);
 	const usersOnPage = useSelector(state => state.usersPage.usersOnPage)
+	const totalCount = useSelector(state => state.usersPage.totalCount)
 
+	const followed = (userId) => {
+		dispatch(follow(userId))
+	}
+	const unfollowed = (userId) => {
+		dispatch(unfollow(userId))
+	}
 
 	const createUsers = () => {
 		const pathApi = 'https://social-network.samuraijs.com/api/1.0'
 		axios
 			.get(`${pathApi}/users?page=${currentPage}&count=${usersOnPage}`)
 			.then(res => {
-				props.setUsersStore(res.data.items)
+				dispatch(setTotalCount(res.data.totalCount))
+				dispatch(setUsers(res.data.items))
+
 			})
 	}
+
 	if (users.length === 0) {
 		createUsers()
 	}
@@ -48,26 +50,42 @@ export default function Users(props) {
 			// location={`${u.location.country}, ${u.location.city}`}
 			status={u.status}
 			followed={u.followed}
-			avatarURL={u.photos.small}
-			follow={follow}
-			unfollow={unfollow}
+			avatarURL={u.photos.large}
+			follow={followed}
+			unfollow={unfollowed}
 		/>)
 
 
 
-	let btns = Math.ceil(props.totalUsers / usersOnPage);
+	let pagesAll = Math.ceil(totalCount / usersOnPage);
 
 
 	let pages = [];
 
 
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= pagesAll; i++) {
 		pages.push(i)
 	}
 
 	let test = pages.map((p) => {
-		return <button onClick={() => { props.setCurrentPage(p) }} className={currentPage === p ? `${s.currentPage} ${s.page}` : s.page} key={p} > {p}</button >
+		if (currentPage <= 5) {
+			while (p <= 10) {
+				return <button onClick={() => { dispatch(setCurrentPage(p)) }}
+					className={currentPage === p ? `${s.currentPage} ${s.page}` : s.page}
+					key={p}>{p}</button >
+
+
+			}
+		} else {
+			for (let i = p + currentPage - 5; i <= currentPage + 6; i++) {
+				return <button onClick={() => { dispatch(setCurrentPage(i)) }}
+					className={currentPage === i ? `${s.currentPage} ${s.page}` : s.page}
+					key={i}>{i}</button >
+
+			}
+		}
 	})
+
 	return (
 		< div >
 			{test}

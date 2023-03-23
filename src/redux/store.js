@@ -10,8 +10,7 @@ let store = configureStore({
 		profilePage: profileReducer,
 		dialogsPage: dialogsReducer,
 		navbar: navbarReducer,
-		usersPage: usersReducer,
+		usersPage: usersReducer
 	}
 });
-window.store = store.getState()
 export default store;

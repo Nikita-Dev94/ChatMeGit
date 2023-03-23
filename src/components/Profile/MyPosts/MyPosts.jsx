@@ -1,31 +1,34 @@
 import React from 'react';
 import s from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
+import { useDispatch, useSelector } from 'react-redux';
+import { addPost, updateTextPost } from '../../../redux/profileReducer';
+
+const MyPosts = () => {
+
+	const dispatch = useDispatch()
+	const posts = useSelector(state => state.profilePage.posts)
+	const textPost = useSelector(state => state.profilePage.textPost)
 
 
 
-
-
-
-export const MyPosts = (props) => {
-
-	let postsElement = props.posts.map(p => <Post key={p.id} src={p.src} name={p.name} message={p.message} />)
-	let createPostElement = React.createRef();
-	let createPostBtn = React.createRef();
+	const postsElement = posts.map(p => <Post key={p.id} src={p.src} name={p.name} message={p.message} />)
+	const createPostElement = React.createRef();
+	const createPostBtn = React.createRef();
 
 	const createPost = (e) => {
 		e.preventDefault();
-		props.createPost()
+		dispatch(addPost())
 	}
 	const postTextChange = () => {
-		props.postTextChange(createPostElement.current.value)
+		dispatch(updateTextPost(createPostElement.current.value))
 	}
 	return (
 		<div className={s.posts}>
 			<h3 className={s.title}>Мои посты</h3>
 			<form action='#' className={s.writePost}>
 				<textarea
-					onChange={postTextChange} value={props.textPost}
+					onChange={postTextChange} value={textPost}
 					ref={createPostElement} className={s.input} placeholder='Что у Вас нового?' />
 				<button onClick={createPost}
 					ref={createPostBtn} type='submit' className={s.postBtn}  >Отправить</button>
@@ -36,3 +39,5 @@ export const MyPosts = (props) => {
 		</div>
 	);
 }
+
+export default MyPosts

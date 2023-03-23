@@ -2,12 +2,15 @@ import React from 'react';
 import s from "./User.module.css";
 import Key from "./Key/Key";
 import Avatar from "./Avatar/Avatar";
+import { useSelector } from 'react-redux';
 
 
 
-const User = (props) => {
+const User = () => {
 
-	let keysElement = props.keyData.map(k => <Key key={k.title} title={k.title} value={k.value} />)
+	const keyData = useSelector(state => state.profilePage.keyData)
+
+	let keysElement = keyData.map(k => <Key key={k.title} title={k.title} value={k.value} />)
 
 	return (
 		<div className={s.user}>
