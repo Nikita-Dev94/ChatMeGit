@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import s from "./Header.module.css";
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMyInfo } from '../../redux/authReducer';
 import { NavLink } from 'react-router-dom';
+import { getMyInfo } from '../../api/api';
 
 const Header = () => {
 
@@ -11,14 +11,10 @@ const Header = () => {
 
 
 	useEffect(() => {
-		const pathApi = 'https://social-network.samuraijs.com/api/1.0'
-		axios
-			.get(`${pathApi}/auth/me`, {
-				withCredentials: true
-			})
-			.then(res => {
-				if (res.data.resultCode === 0) {
-					let { id, email, login } = res.data.data
+		getMyInfo()
+			.then(data => {
+				if (data.resultCode === 0) {
+					let { id, email, login } = data.data
 					dispatch(setMyInfo({ id, email, login }))
 				}
 			})

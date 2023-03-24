@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import User from './User/User'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTotalCount, setUsers, follow, unfollow } from '../../redux/usersReducer'
 import s from './Users.module.css'
+import { getUsers } from '../../api/api'
 
 
 
@@ -22,18 +22,15 @@ export default function Users() {
 		dispatch(unfollow(userId))
 	}
 
-	const createUsers = (page) => {
-		const pathApi = 'https://social-network.samuraijs.com/api/1.0'
-		axios
-			.get(`${pathApi}/users?page=${page}&count=${usersOnPage}`)
-			.then(res => {
-				dispatch(setTotalCount(res.data.totalCount))
-				dispatch(setUsers(res.data.items))
-			})
+	const createUsers = (page, usersOnPage) => {
+		getUsers(page, usersOnPage).then(data => {
+			dispatch(setTotalCount(data.totalCount))
+			dispatch(setUsers(data.items))
+		})
 	}
 
 	useEffect(() => {
-		createUsers(currentPage)
+		createUsers(currentPage, usersOnPage)
 	}, [currentPage])
 
 

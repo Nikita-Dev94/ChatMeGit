@@ -2,8 +2,8 @@ import React from 'react';
 import s from "./Friends.module.css";
 import Friend from './Friend/Friend';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { setFriends } from '../../../redux/navbarReducer';
+import { getFriends } from '../../../api/api';
 
 
 
@@ -14,11 +14,9 @@ const Friends = () => {
 	const usersOnPage = useSelector(state => state.navbar.usersOnPage)
 
 	const createFriends = () => {
-		const pathApi = 'https://social-network.samuraijs.com/api/1.0'
-		axios
-			.get(`${pathApi}/users?page=${currentPage}&count=${usersOnPage}`)
-			.then(res => {
-				dispatch(setFriends(res.data.items))
+		getFriends(currentPage, usersOnPage)
+			.then(data => {
+				dispatch(setFriends(data.items))
 			})
 	}
 	const friends = useSelector(state => state.navbar.friends)

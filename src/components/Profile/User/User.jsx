@@ -4,9 +4,9 @@ import Key from "./Key/Key";
 import Avatar from "./Avatar/Avatar";
 import { useSelector, useDispatch } from 'react-redux';
 import { setInfo } from '../../../redux/profileReducer';
-import { setMyInfo } from '../../../redux/authReducer';
-import axios from 'axios';
+
 import { useLocation } from 'react-router-dom';
+import { getInfo } from '../../../api/api';
 
 
 
@@ -20,26 +20,14 @@ const User = () => {
 	let location = useLocation();
 
 
-	const pathApi = 'https://social-network.samuraijs.com/api/1.0'
 	if (location.pathname !== '/profile') {
 
-		axios
-			.get(`${pathApi}${location.pathname}`)
-			.then(res => {
-				dispatch(setInfo(res.data))
-			})
-	} else {
-		axios
-			.get(`${pathApi}/auth/me`, {
-				withCredentials: true
-			})
-			.then(res => {
-				if (res.data.resultCode === 0) {
-					let { id, email, login } = res.data.data;
-					dispatch(setMyInfo({ id, email, login }))
-				}
+		getInfo(location.pathname)
+			.then(data => {
+				dispatch(setInfo(data))
 			})
 	}
+
 
 
 
