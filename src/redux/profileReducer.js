@@ -36,10 +36,16 @@ export const profileReducer = createSlice({
 				value: 'ebanarama.xyu'
 			},
 		],
+		profile: {
+			photos: {
+				small: "https://www.meme-arsenal.com/memes/1de8fd7b3ea843febb7941e0ad21517d.jpg",
+				large: "https://www.meme-arsenal.com/memes/1de8fd7b3ea843febb7941e0ad21517d.jpg"
+			},
+			aboutMe: 'Я уже 4,5 месяца живу с Сан-Франциско и снимаюсь в дешевой порнухе. Есть какой-то достаток. ПЯть баксов,блять, на кармане у меня всегда есть. Я куплю хлебушка, хуебушка, молочка.',
+		}
 	},
 	reducers: {
 		updateTextPost: (state, action) => {
-
 			state.textPost = action.payload
 		},
 		addPost: state => {
@@ -51,11 +57,14 @@ export const profileReducer = createSlice({
 			}
 			state.posts = [...state.posts, newPost]
 			state.textPost = ''
+		},
+		setInfo: (state, action) => {
+			state.profile = action.payload
 		}
 	}
 })
 
-export const { updateTextPost, addPost } = profileReducer.actions
+export const { updateTextPost, addPost, setInfo } = profileReducer.actions
 
 
 export default profileReducer.reducer
