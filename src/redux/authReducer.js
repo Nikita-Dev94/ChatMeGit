@@ -6,13 +6,17 @@ export const authReducer = createSlice({
 	initialState: {
 		id: null,
 		email: null,
-		login: null
+		login: null,
+		isAuth: false
 	},
 	reducers: {
 		setMyInfo: (state, action) => {
 			let { id, email, login } = action.payload
-			return state = { id, email, login }
-
+			if (id !== null) {
+				return state = { id, email, login, isAuth: true }
+			} else {
+				return state
+			}
 		}
 	}
 })

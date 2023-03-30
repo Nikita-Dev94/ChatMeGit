@@ -2,7 +2,7 @@ import DialogField from './DialogField/DialogField';
 import { connect } from 'react-redux';
 
 
-
+//здесь должно быть еще поле выбора диалога
 
 let mapStateToProps = (state) => {
 

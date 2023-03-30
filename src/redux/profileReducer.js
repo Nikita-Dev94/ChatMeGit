@@ -38,11 +38,12 @@ export const profileReducer = createSlice({
 		],
 		profile: {
 			photos: {
-				small: "https://www.meme-arsenal.com/memes/1de8fd7b3ea843febb7941e0ad21517d.jpg",
-				large: "https://www.meme-arsenal.com/memes/1de8fd7b3ea843febb7941e0ad21517d.jpg"
+				small: '',
+				large: ''
 			},
-			aboutMe: 'Я уже 4,5 месяца живу с Сан-Франциско и снимаюсь в дешевой порнухе. Есть какой-то достаток. ПЯть баксов,блять, на кармане у меня всегда есть. Я куплю хлебушка, хуебушка, молочка.',
-		}
+			aboutMe: '',
+		},
+		status: 'test'
 	},
 	reducers: {
 		updateTextPost: (state, action) => {
@@ -60,11 +61,17 @@ export const profileReducer = createSlice({
 		},
 		setInfo: (state, action) => {
 			state.profile = action.payload
+		},
+		setStatus: (state, action) => {
+			state.status = action.payload
+		},
+		updateStatus: (state, action) => {
+			state.status = action.payload
 		}
 	}
 })
 
-export const { updateTextPost, addPost, setInfo } = profileReducer.actions
+export const { updateTextPost, addPost, setInfo, setStatus, updateStatus } = profileReducer.actions
 
 
 export default profileReducer.reducer

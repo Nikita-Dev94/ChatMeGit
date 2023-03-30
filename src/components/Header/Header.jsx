@@ -1,26 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import s from "./Header.module.css";
-import { useDispatch, useSelector } from 'react-redux';
-import { setMyInfo } from '../../redux/authReducer';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getMyInfo } from '../../api/api';
 
 const Header = () => {
-
-	const dispatch = useDispatch();
-
-
-	useEffect(() => {
-		getMyInfo()
-			.then(data => {
-				if (data.resultCode === 0) {
-					let { id, email, login } = data.data
-					dispatch(setMyInfo({ id, email, login }))
-				}
-			})
-
-	}, [dispatch])
-
 	const authInfo = useSelector(state => state.auth)
 
 	return (

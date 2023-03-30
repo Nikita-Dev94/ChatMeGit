@@ -4,13 +4,14 @@ import MyPosts from "./MyPosts/MyPosts"
 import User from './User/User';
 
 
+
 const Profile = () => {
+
 	return (
 		<div>
 			<OwnerPage />
 			<User />
 			<MyPosts />
-
 		</div>
 	);
 }
