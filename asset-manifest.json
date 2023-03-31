@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ChatMeGit/static/css/main.bc0667e9.css",
-    "main.js": "/ChatMeGit/static/js/main.05acfab9.js",
+    "main.js": "/ChatMeGit/static/js/main.affafd4f.js",
     "static/js/787.28cb0dcd.chunk.js": "/ChatMeGit/static/js/787.28cb0dcd.chunk.js",
     "static/media/logo.svg": "/ChatMeGit/static/media/logo.1b2652ed347d608fcfe43d1b3d04a903.svg",
     "static/media/preloader.svg": "/ChatMeGit/static/media/preloader.a939f19a496eb59f91d400de4c90513b.svg",
     "index.html": "/ChatMeGit/index.html",
     "main.bc0667e9.css.map": "/ChatMeGit/static/css/main.bc0667e9.css.map",
-    "main.05acfab9.js.map": "/ChatMeGit/static/js/main.05acfab9.js.map",
+    "main.affafd4f.js.map": "/ChatMeGit/static/js/main.affafd4f.js.map",
     "787.28cb0dcd.chunk.js.map": "/ChatMeGit/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bc0667e9.css",
-    "static/js/main.05acfab9.js"
+    "static/js/main.affafd4f.js"
   ]
 }
