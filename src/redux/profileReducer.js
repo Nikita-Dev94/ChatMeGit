@@ -18,32 +18,23 @@ export const profileReducer = createSlice({
 			}
 		],
 		textPost: '',
-		keyData: [
-			{
-				title: 'Дата рождения',
-				value: '31.01.94'
-			},
-			{
-				title: 'Город',
-				value: 'штат Нью-Хэмпшир'
-			},
-			{
-				title: 'Любимая цитата',
-				value: 'Она тебя сожрет! Палку! Палку давай! ААААА!'
-			},
-			{
-				title: 'Сайт',
-				value: 'ebanarama.xyu'
-			},
-		],
 		profile: {
+			fullName: null,
 			photos: {
 				small: '',
 				large: ''
 			},
 			aboutMe: '',
+			lookingForAJob: true,
+			lookingForAJobDescription: "",
+			contacts: {
+				vk: null,
+				facebook: null,
+				youtube: null,
+				github: null
+			},
 		},
-		status: 'test'
+		status: ''
 	},
 	reducers: {
 		updateTextPost: (state, action) => {

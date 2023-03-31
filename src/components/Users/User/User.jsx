@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { follow, unfollow } from '../../../redux/usersReducer';
 import { setUnfollow, setFollow } from './../../../api/api';
-
+import defaultURL from '../../../img/deafult.png';
 
 export default function User(props) {
 
@@ -34,7 +34,7 @@ export default function User(props) {
 			}
 			<NavLink to={'/profile/' + props.id}>
 				<div className={s.left__side}>
-					<img src={props.avatarURL != null ? props.avatarURL : 'https://ac204.digitalmind.su/Images/sostav/students/muhanov.jpg'}
+					<img src={props.avatarURL != null ? props.avatarURL : defaultURL}
 						alt={'props.fullName'} className={s.userAvatar} />
 
 				</div>

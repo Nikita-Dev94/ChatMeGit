@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from "./Login.module.css";
 import { useForm } from 'react-hook-form';
 import { getMyInfo, postAuth } from '../../api/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMyInfo } from '../../redux/authReducer';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 	const dispatch = useDispatch();
 	const authMe = useSelector(state => state.auth)
 	const { register,
 		handleSubmit,
-		watch,
-		formState: { errors }
 	} = useForm();
 
-	const onSubmit = async data => {
-		await postAuth(data)
-		const test = await getMyInfo()
-		debugger
+	const onSubmit = data => {
+		postAuth(data)
+			.then(res => {
+				if (res.data.resultCode === 0) {
+					getMyInfo()
+						.then(data => {
+							const { id, email, login } = data.data;
+							dispatch(setMyInfo({ id, email, login }));
+						})
+
+
+				}
+			})
 	};
+
+	if (authMe.isAuth) {
+		return < Navigate to='/profile' />
+	}
+
 
 	return (
 		<div >

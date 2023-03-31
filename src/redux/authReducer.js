@@ -7,6 +7,7 @@ export const authReducer = createSlice({
 		id: null,
 		email: null,
 		login: null,
+		smallPhoto: null,
 		isAuth: false
 	},
 	reducers: {
@@ -17,10 +18,16 @@ export const authReducer = createSlice({
 			} else {
 				return state
 			}
+		},
+		delMyInfo: (state) => {
+			return state = { id: null, email: null, login: null, isAuth: false }
+		},
+		setMyPhoto: (state, action) => {
+			return state = { ...state, smallPhoto: action.payload }
 		}
 	}
 })
 
-export const { setMyInfo } = authReducer.actions
+export const { setMyInfo, delMyInfo, setMyPhoto } = authReducer.actions
 
 export default authReducer.reducer

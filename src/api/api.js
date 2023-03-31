@@ -13,7 +13,10 @@ export const getMyInfo = () => {
 
 	return axios
 		.get(`${pathApi}auth/me`, {
-			withCredentials: true
+			withCredentials: true,
+			headers: {
+				'API-KEY': 'e371de99-3ea6-4012-a1c0-f7b0f6db142b'
+			}
 		})
 		.then(res => {
 			return res.data
@@ -72,10 +75,26 @@ export const putUpdateStatus = (status) => {
 			}
 		})
 }
-
 export const postAuth = (data) => {
 	const { email, password, rememberMe } = data
-	debugger
+
 	return axios
-		.post(`${pathApi}auth/login`, { email, password, rememberMe })
+		.post(`${pathApi}auth/login`, { email, password, rememberMe }, {
+			withCredentials: true,
+			headers: {
+				'API-KEY': 'e371de99-3ea6-4012-a1c0-f7b0f6db142b'
+			}
+		}
+		)
+}
+export const logOut = () => {
+
+	return axios
+		.delete(`${pathApi}auth/login`)
+}
+export const getUserInfo = (id) => {
+
+	return axios
+		.get(`${pathApi}profile/${id}`)
+		.then(res => res.data)
 }
