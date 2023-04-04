@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/ChatMeGit/static/css/main.af35a96d.css",
-    "main.js": "/ChatMeGit/static/js/main.fc61e938.js",
+    "main.js": "/ChatMeGit/static/js/main.9d19b0ad.js",
     "static/js/787.28cb0dcd.chunk.js": "/ChatMeGit/static/js/787.28cb0dcd.chunk.js",
     "static/media/loginBG.png": "/ChatMeGit/static/media/loginBG.3af2e9bec2eb42d66ea0.png",
     "static/media/logo.svg": "/ChatMeGit/static/media/logo.1b2652ed347d608fcfe43d1b3d04a903.svg",
+    "static/media/preloader.svg": "/ChatMeGit/static/media/preloader.a939f19a496eb59f91d400de4c90513b.svg",
     "index.html": "/ChatMeGit/index.html",
     "static/media/agree.svg": "/ChatMeGit/static/media/agree.b1f6c8e9d72c2ef18c6b.svg",
     "main.af35a96d.css.map": "/ChatMeGit/static/css/main.af35a96d.css.map",
-    "main.fc61e938.js.map": "/ChatMeGit/static/js/main.fc61e938.js.map",
+    "main.9d19b0ad.js.map": "/ChatMeGit/static/js/main.9d19b0ad.js.map",
     "787.28cb0dcd.chunk.js.map": "/ChatMeGit/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.af35a96d.css",
-    "static/js/main.fc61e938.js"
+    "static/js/main.9d19b0ad.js"
   ]
 }
